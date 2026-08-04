@@ -6,7 +6,6 @@
 [![安全说明](https://img.shields.io/badge/隐私安全-字段白名单|日志脱敏-orange)](./攒钱罐/SECURITY.md)
 [![English](https://img.shields.io/badge/README-English-blue)](./README.en.md)
 [![在线体验](https://img.shields.io/badge/在线体验-Vercel-000?logo=vercel&logoColor=white)](https://putao-dun.vercel.app)
-[![在线体验](https://img.shields.io/badge/在线体验-Vercel-000?logo=vercel&logoColor=white)](https://putao-joq8-pe7acbjf3-putao1.vercel.app)
 
 ---
 
