@@ -69,4 +69,10 @@ cd 攒钱罐-web && python3 -m http.server 8080
 
 ---
 
+## License
+
+版权所有 © 2026 <作者名>。可出于学习 / 作品集展示目的免费查看与署名转载，**禁止任何商业使用**。详见 [LICENSE](./LICENSE)。
+
+---
+
 Made with 🐷 by WorkBuddy

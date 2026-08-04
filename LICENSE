@@ -1,0 +1,53 @@
+版权声明 / License
+==================
+
+版权所有 © 2026 <作者名 / Your Name>。保留所有权利。
+Copyright © 2026 <作者名 / Your Name>. All rights reserved.
+
+----------------------------------------------------------------------
+授权范围 / Grant of License
+----------------------------------------------------------------------
+在保留本声明与署名（注明原作者及本仓库链接）的前提下，任何人可以：
+
+  - 出于学习、技术研究、代码参考之目的，免费查看、下载、复制本项目源码；
+  - 在个人作品集、简历、博客、技术分享中展示本项目并注明出处
+    （链接回本仓库：https://github.com/<你的用户名>/<仓库名>）。
+
+You may, provided this notice and attribution (original author + repo link)
+are retained:
+  - Freely view, download, and copy the source code for learning,
+    research, or code-reference purposes;
+  - Showcase this project in a personal portfolio, résumé, blog, or
+    tech talk, with proper credit linking back to this repository.
+
+----------------------------------------------------------------------
+禁止事项 / Restrictions
+----------------------------------------------------------------------
+未经作者书面许可，不得将本项目用于任何商业目的，包括但不限于：
+
+  - 将本项目或其中代码出售、授权给第三方；
+  - 去除或修改版权信息后用于商业产品或闭源项目；
+  - 以任何形式利用本项目牟利。
+
+Without the author's prior written permission, you may NOT use this project
+for any commercial purpose, including but not limited to:
+  - Selling or sub-licensing this project or its code to any third party;
+  - Removing or modifying copyright notices and using it in a commercial
+    or closed-source product;
+  - Monetizing this project in any form.
+
+----------------------------------------------------------------------
+商业授权 / Commercial Licensing
+----------------------------------------------------------------------
+如需将本项目用于商业用途，请通过本仓库的联系方式（Issues / 邮箱）与作者
+协商授权事宜。
+For commercial use, please contact the author via this repository's
+Issues or email to negotiate a license.
+
+----------------------------------------------------------------------
+免责声明 / Disclaimer
+----------------------------------------------------------------------
+本项目按“现状”（AS IS）提供，不附带任何明示或暗示的担保。作者不对因
+使用本项目所产生的任何直接或间接后果承担责任。
+This project is provided "AS IS", without warranty of any kind. The author
+is not liable for any direct or indirect consequences arising from its use.
