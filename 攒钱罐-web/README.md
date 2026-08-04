@@ -94,7 +94,7 @@ python3 -m http.server 8080
 
 本目录是纯静态站点，可一键部署到免费静态托管，获得长期有效的在线 Demo 链接：
 
-- **Vercel 已部署**：https://putao-joq8-pe7acbjf3-putao1.vercel.app（仓库根目录 `vercel.json` 已配置发布目录为 `攒钱罐-web`，导入后无需构建即可上线）
+- **Vercel 已部署**：https://putao-dun.vercel.app（仓库根目录 `vercel.json` 已配置发布目录为 `攒钱罐-web`，导入后无需构建即可上线）
 - **Netlify**：仓库根目录 `netlify.toml` 已配置发布目录为 `攒钱罐-web`，导入后无需构建即可得到 `*.netlify.app` 永久链接。
 - 也可直接用 **GitHub Pages**（将本目录内容放到仓库根或 `/docs` 后开启 Pages）。
 
