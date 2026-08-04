@@ -1,0 +1,26 @@
+.amount-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  margin: 24rpx 0 16rpx;
+}
+.rmb { font-size: 56rpx; font-weight: 700; color: var(--text); }
+.num {
+  font-size: 80rpx;
+  font-weight: 700;
+  text-align: center;
+  min-width: 240rpx;
+  color: var(--text);
+}
+.clear {
+  width: 44rpx; height: 44rpx; line-height: 44rpx;
+  border-radius: 50%; background: #eef0f3; color: var(--text-3);
+  font-size: 24rpx; text-align: center;
+}
+.presets { display: flex; flex-wrap: wrap; gap: 20rpx; }
+.preset {
+  padding: 18rpx 36rpx; background: #eafaf1; color: var(--theme-dark);
+  border-radius: 40rpx; font-weight: 600; font-size: 28rpx;
+}
+.preset:active { background: #d6f3e3; }

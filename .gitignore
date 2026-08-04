@@ -1,0 +1,10 @@
+# WorkBuddy 会话数据（个人私密，不属于项目源码）
+.workbuddy/
+
+# 操作系统 junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 依赖（如后续在仓库内安装）
+node_modules/

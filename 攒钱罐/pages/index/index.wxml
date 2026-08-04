@@ -1,0 +1,83 @@
+<wxs src="../../utils/money.wxs" module="m" />
+<view class="page">
+  <!-- 今日额度主卡 -->
+  <view class="hero card">
+    <block wx:if="{{budgetSet}}">
+      <view class="hero-label">今日还可使用</view>
+      <view class="hero-money money">{{m.fmt(left)}}</view>
+      <view class="hero-sub">
+        <text class="muted">今日额度 {{m.fmt(budget)}}</text>
+        <text class="muted">已用 {{m.fmt(used)}}</text>
+      </view>
+      <view class="bar {{barClass}}" style="margin-top:20rpx">
+        <view style="width:{{percent}}%"></view>
+      </view>
+      <view class="hero-tip {{barClass ? 'danger' : 'muted'}}" wx:if="{{barClass}}">
+        ⚠️ 今日额度已用 {{percent}}%，注意控制
+      </view>
+    </block>
+    <block wx:else>
+      <view class="hero-label">今天还没设置可用金额</view>
+      <view class="hero-money money" style="color:var(--text-3)">--</view>
+      <view class="hero-sub"><text class="muted">点下方按钮，设置今天的可用金额</text></view>
+    </block>
+
+    <view class="hero-actions">
+      <button class="btn btn-danger" bindtap="goExpense">记一笔</button>
+      <button class="btn btn-ghost" bindtap="goBudget">{{budgetSet ? '调整额度' : '加额度'}}</button>
+    </view>
+  </view>
+
+  <!-- 重点管控 -->
+  <view class="card strict" wx:if="{{budgetSet}}">
+    <view class="strict-title">🔥 今日重点管控（奶茶/炸鸡/游戏）</view>
+    <view class="row between" style="margin-top:10rpx">
+      <text class="muted">已花 {{m.fmt(strictUsed)}} / 限额 {{m.fmt(strictLimit)}}</text>
+      <text class="muted">{{strictPct}}%</text>
+    </view>
+    <view class="bar {{strictOver ? 'danger' : (strictPct >= 70 ? 'warn' : '')}}" style="margin-top:10rpx"><view style="width:{{strictPct}}%"></view></view>
+    <view wx:if="{{strictOver}}" class="danger" style="font-size:22rpx;margin-top:8rpx">已超重点限额，再买要交罚金啦！</view>
+  </view>
+
+  <!-- 打卡 -->
+  <view class="card row between">
+    <view>
+      <view class="bold" style="font-size:32rpx">自律打卡</view>
+      <view class="muted" style="margin-top:6rpx">已连续坚持 <text class="theme bold">{{streak}}</text> 天</view>
+    </view>
+    <button class="btn {{checkedIn ? '' : 'btn-primary'}}" style="width:200rpx;height:72rpx" disabled="{{checkedIn}}" bindtap="doCheckin">
+      {{checkedIn ? '已打卡' : '打卡'}}
+    </button>
+  </view>
+
+  <!-- 存钱罐 -->
+  <view class="card piggy" bindtap="goGoal">
+    <view class="piggy-icon">🐷</view>
+    <view style="flex:1">
+      <view class="muted">存钱罐累计</view>
+      <view class="money" style="font-size:40rpx;margin-top:4rpx">{{m.fmt(savings)}}</view>
+    </view>
+    <view class="muted" style="font-size:22rpx">愿望 {{wishUnlocked}}/{{wishTotal}} 已解锁</view>
+    <view class="muted">我的目标 ›</view>
+  </view>
+
+  <!-- 今日账单 -->
+  <view class="card">
+    <view class="row between" style="margin-bottom:16rpx">
+      <view class="bold">今日明细</view>
+      <view class="muted" bindtap="goRecords">全部账单 ›</view>
+    </view>
+    <view wx:if="{{todayList.length === 0}}" class="empty muted">今天还没有任何记录</view>
+    <view wx:for="{{todayList}}" wx:key="id" class="rec row between">
+      <view class="row">
+        <text class="rec-icon">{{item.catIcon}}</text>
+        <view>
+          <view class="bold" style="font-size:28rpx">{{item.catName}}</view>
+          <view class="muted" style="font-size:22rpx">{{item.note || item.amountText}}</view>
+        </view>
+      </view>
+      <text class="{{item.type === 'income' ? 'theme' : 'text-2'}} money">{{item.amountText}}</text>
+    </view>
+    <button class="btn btn-ghost btn-block" style="margin-top:20rpx" wx:if="{{budgetSet}}" bindtap="summary">📝 今日小结</button>
+  </view>
+</view>

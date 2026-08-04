@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="tabs">
+    <view class="tab {{filter==='all'?'on':''}}" data-f="all" bindtap="setFilter">全部</view>
+    <view class="tab {{filter==='expense'?'on':''}}" data-f="expense" bindtap="setFilter">支出</view>
+    <view class="tab {{filter==='income'?'on':''}}" data-f="income" bindtap="setFilter">收入</view>
+  </view>
+
+  <view class="card center" style="background:#fff7f0">
+    <text class="muted">筛选范围内累计支出</text>
+    <text class="money" style="font-size:48rpx;color:var(--warning)">{{totalText}}</text>
+  </view>
+
+  <view wx:if="{{groups.length===0}}" class="empty muted center" style="padding:80rpx 0">暂无记录</view>
+
+  <view wx:for="{{groups}}" wx:key="date" class="card">
+    <view class="row between" style="margin-bottom:12rpx">
+      <text class="bold">{{item.date}}</text>
+      <text class="muted">支出 {{item.sum}}</text>
+    </view>
+    <view wx:for="{{item.items}}" wx:for-item="r" wx:key="id"
+          class="rec row between" data-id="{{r.id}}" bindtap="onDelete">
+      <view class="row">
+        <text class="rec-icon">{{r.catIcon}}</text>
+        <view>
+          <view class="bold" style="font-size:28rpx">{{r.catName}}</view>
+          <view class="muted" style="font-size:22rpx">{{r.note || r.time}}</view>
+        </view>
+      </view>
+      <text class="{{r.type==='income'?'theme':'text-2'}} money">{{r.amountText}}</text>
+    </view>
+  </view>
+</view>

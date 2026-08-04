@@ -1,0 +1,9 @@
+{
+  "name": "setReminder",
+  "version": "1.0.0",
+  "description": "设置/关闭每日预算提醒（服务端校验，仅存聚合偏好）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

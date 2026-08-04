@@ -1,0 +1,9 @@
+{
+  "name": "subscribeReminder",
+  "version": "1.0.0",
+  "description": "定时推送每日预算提醒（仅聚合数字）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

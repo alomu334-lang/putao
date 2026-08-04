@@ -1,0 +1,70 @@
+<wxs src="../../utils/money.wxs" module="m" />
+<view class="page">
+  <block wx:if="{{budgetSet}}">
+    <!-- 今日剩余提示 -->
+    <view class="remain card">
+      <text class="muted">记这笔后，今日还可使用</text>
+      <text class="remain-money money">{{m.fmt(left)}}</text>
+      <text class="muted">（今日总额度 {{m.fmt(budget)}}）</text>
+    </view>
+
+    <!-- 分类选择 -->
+    <view class="card">
+      <view class="muted" style="margin-bottom:20rpx">选择分类</view>
+      <view class="cats">
+        <view wx:for="{{categories}}" wx:key="key"
+              class="cat {{selected === item.key ? 'cat-on' : ''}}"
+              data-key="{{item.key}}" bindtap="selectCat">
+          <text class="cat-icon">{{item.icon}}</text>
+          <text class="cat-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 金额 + 备注 -->
+    <view class="card">
+      <view class="row" style="border-bottom:1rpx solid var(--line);padding-bottom:20rpx">
+        <text class="rmb">¥</text>
+        <input class="num" type="digit" focus placeholder="0.00" value="{{amount}}" bindinput="onAmount" />
+      </view>
+      <input class="note" placeholder="添加备注（可选）" value="{{note}}" bindinput="onNote" />
+    </view>
+
+    <button class="btn btn-danger btn-block" bindtap="confirm">确认支付</button>
+    <view class="hint muted">超出今日额度将被拦截，并自动缴纳罚金进入存钱罐 🐷</view>
+  </block>
+
+  <block wx:else>
+    <view class="card center empty-card">
+      <text style="font-size:80rpx">🔒</text>
+      <view class="bold" style="margin:20rpx 0 8rpx">今天还没设置可用金额</view>
+      <view class="muted" style="margin-bottom:30rpx">先设置今日可用金额，才能记账</view>
+      <button class="btn btn-primary" style="width:300rpx" bindtap="goBudget">去设置</button>
+    </view>
+  </block>
+</view>
+
+<!-- 超限拦截弹窗 -->
+<view wx:if="{{showBlock}}" class="mask">
+  <view class="dialog">
+    <view class="dialog-icon">⛔</view>
+    <view class="dialog-title">支付被拦截</view>
+    <view wx:if="{{blockInfo.strict}}">
+      <view class="dialog-text">这笔 <text class="bold">{{m.fmt(blockInfo.total)}}</text> 属于 <text class="danger bold">重点管控类目</text><br/>今日奶茶/炸鸡/游戏已花 <text class="bold">{{m.fmt(blockInfo.strictUsed)}}</text><br/>超过限额 <text class="bold">{{m.fmt(blockInfo.strictLimit)}}</text> 达 <text class="danger bold">{{m.fmt(blockInfo.overflow)}}</text></view>
+      <view class="dialog-penalty">认罚缴纳罚金 <text class="danger bold">{{m.fmt(blockInfo.penalty)}}</text>（进入存钱罐）</view>
+      <button class="btn btn-danger btn-block" bindtap="payPenalty">缴纳罚金并放弃</button>
+      <button class="btn btn-block" style="margin-top:16rpx;background:#f2f3f5;color:var(--text-2)" bindtap="cancelBlock">返回修改金额</button>
+    </view>
+    <view wx:else>
+      <view class="dialog-text">
+        你试图支付 <text class="bold">{{m.fmt(blockInfo.total)}}</text><br/>
+        但今日仅剩 <text class="theme bold">{{m.fmt(blockInfo.total - blockInfo.overflow)}}</text><br/>
+        超出 <text class="danger bold">{{m.fmt(blockInfo.overflow)}}</text>
+      </view>
+      <view class="dialog-penalty">认罚缴纳罚金 <text class="danger bold">{{m.fmt(blockInfo.penalty)}}</text>（进入存钱罐）</view>
+      <button class="btn btn-danger btn-block" bindtap="payPenalty">缴纳罚金并放弃支付</button>
+      <button class="btn btn-ghost btn-block" style="margin-top:16rpx" bindtap="spendLeft">只花光今日剩余</button>
+      <button class="btn btn-block" style="margin-top:16rpx;background:#f2f3f5;color:var(--text-2)" bindtap="cancelBlock">返回修改金额</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,65 @@
+<svg viewBox="0 0 960 680" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .box{fill:#ffffff;stroke-width:2;rx:14;}
+      .t{fill:#0f172a;font-size:19px;font-weight:700;}
+      .s{fill:#475569;font-size:13px;}
+      .cap{fill:#64748b;font-size:12px;}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="680" fill="#f8fafc"/>
+
+  <text x="480" y="40" text-anchor="middle" fill="#0f172a" font-size="24" font-weight="800">ZanQianGuan · Architecture &amp; Privacy Data Flow</text>
+  <text x="480" y="62" text-anchor="middle" fill="#64748b" font-size="13">Dual-platform shared core · WeChat CloudBase (optional) · Privacy-minimizing firewall</text>
+
+  <!-- CLIENT: mini program -->
+  <rect x="60" y="90" width="360" height="96" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="240" y="122" text-anchor="middle" class="t" fill="#0369a1">WeChat Mini Program</text>
+  <text x="240" y="146" text-anchor="middle" class="s">WXML / WXSS / JS · 5 tabs</text>
+  <text x="240" y="166" text-anchor="middle" class="cap">Today · Records · Goals · Stats · Mine</text>
+
+  <!-- CLIENT: web -->
+  <rect x="540" y="90" width="360" height="96" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="720" y="122" text-anchor="middle" class="t" fill="#0369a1">Web App</text>
+  <text x="720" y="146" text-anchor="middle" class="s">HTML / CSS / JS · SPA</text>
+  <text x="720" y="166" text-anchor="middle" class="cap">Core logic 100% reused from Mini Program</text>
+
+  <!-- STORE layer -->
+  <rect x="300" y="240" width="360" height="84" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="480" y="274" text-anchor="middle" class="t" fill="#15803d">Shared Business Logic · store.js</text>
+  <text x="480" y="298" text-anchor="middle" class="s">Budget / Penalty / Strict caps / Encouragement / Wishes / Goals</text>
+
+  <!-- FIREWALL layer -->
+  <rect x="300" y="356" width="360" height="84" rx="14" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="480" y="388" text-anchor="middle" class="t" fill="#a16207">Privacy Firewall · security.js</text>
+  <text x="480" y="412" text-anchor="middle" class="s">Field allow-list · Range clamping · Sanitize · openid masking</text>
+
+  <!-- LOCAL storage (always) -->
+  <rect x="70" y="500" width="350" height="96" rx="14" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="245" y="534" text-anchor="middle" class="t" fill="#334155">Local Storage (on-device)</text>
+  <text x="245" y="558" text-anchor="middle" class="s">wx.storage / localStorage</text>
+  <text x="245" y="578" text-anchor="middle" class="cap">All records stay on device, zero upload</text>
+
+  <!-- CLOUD (optional) -->
+  <rect x="540" y="476" width="360" height="150" rx="14" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="720" y="506" text-anchor="middle" class="t" fill="#6d28d9">WeChat CloudBase (optional)</text>
+  <text x="720" y="528" text-anchor="middle" class="s" font-size="12">setReminder · syncSnapshot · subscribeReminder · clearCloud</text>
+  <rect x="566" y="540" width="308" height="44" rx="8" fill="#faf5ff" stroke="#a78bfa" stroke-width="1"/>
+  <text x="720" y="567" text-anchor="middle" class="s" fill="#7c3aed">Cloud DB stores aggregated numbers only: remaining / strictRemaining</text>
+  <text x="720" y="612" text-anchor="middle" class="cap">No individual spend, merchant, name, or phone</text>
+
+  <!-- PRIVACY boundary -->
+  <rect x="46" y="478" width="838" height="142" rx="16" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="60" y="498" fill="#ef4444" font-size="12" font-weight="700">Privacy boundary: no WeChat Pay, no transaction history, no bank card / ID / biometric data</text>
+
+  <!-- arrows -->
+  <line x1="240" y1="186" x2="430" y2="240" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="186" x2="530" y2="240" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="480" y1="324" x2="480" y2="356" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="420" y1="398" x2="320" y2="500" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="540" y1="398" x2="640" y2="476" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

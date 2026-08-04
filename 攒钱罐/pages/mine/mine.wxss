@@ -1,0 +1,13 @@
+.head { display: flex; align-items: center; gap: 24rpx; }
+.avatar {
+  width: 96rpx; height: 96rpx; border-radius: 50%;
+  background: #eafaf1; font-size: 56rpx;
+  display: flex; align-items: center; justify-content: center;
+}
+.sec-title { font-size: 26rpx; color: var(--text-3); margin-bottom: 8rpx; }
+.set-row { padding: 22rpx 0; border-bottom: 1rpx solid var(--line); }
+.set-row:last-child { border-bottom: none; }
+.picker { color: var(--theme-dark); font-weight: 600; }
+.menu { padding: 26rpx 0; border-bottom: 1rpx solid var(--line); font-size: 30rpx; }
+.menu:last-child { border-bottom: none; }
+.menu.danger { color: var(--danger); }

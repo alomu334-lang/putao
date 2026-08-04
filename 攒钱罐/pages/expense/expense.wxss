@@ -1,0 +1,44 @@
+.remain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+  background: #fff7f0;
+}
+.remain-money { font-size: 56rpx; color: var(--warning); margin: 4rpx 0; }
+
+.cats { display: flex; flex-wrap: wrap; gap: 20rpx; }
+.cat {
+  width: 150rpx; height: 130rpx; border-radius: 20rpx;
+  background: #f6f7f9; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8rpx;
+}
+.cat-icon { font-size: 48rpx; }
+.cat-name { font-size: 26rpx; color: var(--text-2); }
+.cat-on { background: #eafaf1; border: 2rpx solid var(--theme); }
+.cat-on .cat-name { color: var(--theme-dark); font-weight: 600; }
+
+.rmb { font-size: 48rpx; font-weight: 700; }
+.num { font-size: 64rpx; font-weight: 700; margin-left: 12rpx; flex: 1; }
+.note { margin-top: 20rpx; font-size: 28rpx; color: var(--text-2); }
+
+.hint { text-align: center; font-size: 24rpx; margin-top: 20rpx; }
+
+.empty-card { padding: 70rpx 32rpx; }
+
+.mask {
+  position: fixed; left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); display: flex; align-items: center;
+  justify-content: center; z-index: 100; padding: 48rpx;
+}
+.dialog {
+  background: #fff; border-radius: 28rpx; padding: 44rpx 36rpx;
+  width: 100%; text-align: center;
+}
+.dialog-icon { font-size: 72rpx; }
+.dialog-title { font-size: 36rpx; font-weight: 700; margin: 12rpx 0; }
+.dialog-text { font-size: 28rpx; line-height: 1.8; color: var(--text-2); margin: 16rpx 0; }
+.dialog-penalty {
+  background: #fff1f0; color: var(--danger); border-radius: 16rpx;
+  padding: 18rpx; font-size: 26rpx; margin-bottom: 28rpx;
+}

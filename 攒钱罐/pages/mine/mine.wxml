@@ -1,0 +1,84 @@
+<view class="page">
+  <!-- 顶部 -->
+  <view class="card head">
+    <view class="avatar">🐷</view>
+    <view style="flex:1">
+      <view class="bold" style="font-size:34rpx">攒钱罐</view>
+      <view class="muted" style="margin-top:6rpx">管住每日钱包，越攒越多</view>
+    </view>
+  </view>
+
+  <!-- 罚金概览 -->
+  <view class="card row between" bindtap="goPenalty">
+    <view>
+      <view class="muted">累计罚金 / 存钱罐</view>
+      <view class="money" style="font-size:36rpx;margin-top:6rpx">
+        <text class="danger">{{penaltyPool}}</text>
+        <text class="muted" style="font-size:26rpx"> / {{savings}}</text>
+      </view>
+    </view>
+    <view class="muted">查看罚金记录 ›</view>
+  </view>
+
+  <!-- 设置 -->
+  <view class="card">
+    <view class="sec-title">核心设置</view>
+    <view class="row between set-row">
+      <view>
+        <view class="bold">超支罚金比例</view>
+        <view class="muted" style="font-size:24rpx">超今日额度部分按此比例罚</view>
+      </view>
+      <view class="picker" bindtap="setRate">{{penaltyRateText}} ›</view>
+    </view>
+    <view class="row between set-row">
+      <view>
+        <view class="bold">重点类目每日限额</view>
+        <view class="muted" style="font-size:24rpx">奶茶/炸鸡/游戏 合计上限</view>
+      </view>
+      <view class="picker" bindtap="setStrict">{{strictText}} ›</view>
+    </view>
+    <view class="row between set-row">
+      <view>
+        <view class="bold">昨日结余结转</view>
+        <view class="muted" style="font-size:24rpx">没花完的钱计入明天额度</view>
+      </view>
+      <switch checked="{{carryOverEnabled}}" color="#07c160" bindchange="toggleCarry" />
+    </view>
+    <view class="row between set-row">
+      <view>
+        <view class="bold">结余自动存钱</view>
+        <view class="muted" style="font-size:24rpx">每天没花完的余额进存钱罐</view>
+      </view>
+      <switch checked="{{savingsAuto}}" color="#07c160" bindchange="toggleSave" />
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="sec-title">提醒与云</view>
+    <view class="row between set-row">
+      <view>
+        <view class="bold">每日预算提醒</view>
+        <view class="muted" style="font-size:24rpx">每天固定时间推送"今日剩余可用"（需授权）</view>
+      </view>
+      <switch checked="{{reminderEnabled}}" color="#07c160" bindchange="toggleReminder" disabled="{{!cloudReady}}" />
+    </view>
+    <view class="row between set-row" wx:if="{{reminderEnabled}}">
+      <view>
+        <view class="bold">清除云端数据</view>
+        <view class="muted" style="font-size:24rpx">删除云端的提醒配置与预算快照</view>
+      </view>
+      <view class="picker" bindtap="clearCloudData">清除 ›</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="sec-title">数据</view>
+    <view class="menu" bindtap="exportData">导出备份(JSON) ›</view>
+    <view class="menu" bindtap="importData">导入备份(JSON) ›</view>
+    <view class="menu" bindtap="cloudSync">云同步（微信小程序专属）›</view>
+    <view class="menu" bindtap="about">关于攒钱罐 ›</view>
+    <view class="menu danger" bindtap="reset">清空所有数据 ›</view>
+  </view>
+
+  <view class="center muted" style="font-size:22rpx;margin-top:20rpx">攒钱罐 v2.0 · 本地存储 / 可接微信云开发</view>
+</view>

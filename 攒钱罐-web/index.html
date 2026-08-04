@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>攒钱罐 · 网页版</title>
+  <meta name="description" content="攒钱罐：一个隐私优先的每日预算与存钱打卡工具。花超自动拦截并罚金，奶茶/炸鸡/游戏重点管控，愿望达成撒花解锁。" />
+  <meta property="og:title" content="攒钱罐 · 网页版" />
+  <meta property="og:description" content="每日预算、超支拦截、重点类目管控、存钱目标与愿望清单。数据本地存储，不上传。" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 顶部栏 -->
+    <header class="topbar">
+      <span id="topTitle">今日</span>
+      <span class="top-pig">🐷</span>
+    </header>
+
+    <!-- 屏幕容器 -->
+    <main id="screen"></main>
+
+    <!-- 底部导航 -->
+    <nav class="tabbar">
+      <button class="tab on" data-tab="index"><span>🏠</span><i>今日</i></button>
+      <button class="tab" data-tab="records"><span>📒</span><i>账单</i></button>
+      <button class="tab" data-tab="goal"><span>🎯</span><i>目标</i></button>
+      <button class="tab" data-tab="stats"><span>📊</span><i>统计</i></button>
+      <button class="tab" data-tab="mine"><span>⚙️</span><i>我的</i></button>
+    </nav>
+
+    <!-- 通用弹窗容器 -->
+    <div id="modalRoot"></div>
+    <!-- 鼓励/解锁动画层 -->
+    <div id="fxRoot"></div>
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

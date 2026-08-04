@@ -1,0 +1,9 @@
+{
+  "name": "clearCloud",
+  "version": "1.0.0",
+  "description": "删除用户在云端的全部提醒数据与预算快照（删除权）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

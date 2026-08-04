@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="card center" style="background:#fff1f0">
+    <text class="muted">累计罚金（已全部进入存钱罐 🐷）</text>
+    <text class="money danger" style="font-size:56rpx">{{total}}</text>
+    <text class="muted">共 {{count}} 次超支</text>
+  </view>
+
+  <view wx:if="{{list.length===0}}" class="empty muted center" style="padding:80rpx 0">太棒了，还没有被罚过 🎉</view>
+
+  <view wx:for="{{list}}" wx:key="id" class="card rec">
+    <view class="row between">
+      <view>
+        <view class="bold">超支 {{item.overflowText}}</view>
+        <view class="muted" style="font-size:24rpx">{{item.date}} {{item.time}}</view>
+      </view>
+      <text class="danger money">罚金 {{item.penaltyText}}</text>
+    </view>
+  </view>
+</view>

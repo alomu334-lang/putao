@@ -1,0 +1,26 @@
+// WXS 金额格式化（WXML 不支持直接调用 .toFixed，统一在此处理）
+function fmt(n) {
+  n = +n;
+  if (isNaN(n)) n = 0;
+  var neg = n < 0;
+  n = Math.abs(Math.round(n * 100) / 100);
+  var s = n.toString();
+  if (s.indexOf('.') < 0) s = s + '.00';
+  else {
+    var parts = s.split('.');
+    if (parts[1].length === 1) s = s + '0';
+  }
+  var dot = s.indexOf('.');
+  var intPart = s.substring(0, dot);
+  var dec = s.substring(dot);
+  var withSep = '';
+  var i = intPart.length;
+  while (i > 0) {
+    var start = i - 3 > 0 ? i - 3 : 0;
+    withSep = (withSep ? ',' + intPart.substring(start, i) : intPart.substring(start, i));
+    i = start;
+  }
+  return (neg ? '-' : '') + '¥' + withSep + dec;
+}
+
+module.exports = { fmt: fmt };

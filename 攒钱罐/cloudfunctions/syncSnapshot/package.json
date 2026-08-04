@@ -1,0 +1,9 @@
+{
+  "name": "syncSnapshot",
+  "version": "1.0.0",
+  "description": "写入今日聚合预算快照（仅 remaining 数字，无明细）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

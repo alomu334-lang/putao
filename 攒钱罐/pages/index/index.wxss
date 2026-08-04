@@ -1,0 +1,21 @@
+.hero {
+  background: linear-gradient(135deg, #07c160, #06b357);
+  color: #fff;
+  text-align: center;
+}
+.hero-label { font-size: 28rpx; opacity: 0.92; }
+.hero-money { font-size: 88rpx; margin: 12rpx 0 8rpx; color: #fff; }
+.hero-sub { display: flex; justify-content: space-between; font-size: 24rpx; opacity: 0.95; }
+.hero-tip { font-size: 24rpx; margin-top: 16rpx; }
+.hero-actions { display: flex; gap: 24rpx; margin-top: 32rpx; }
+.hero-actions .btn { flex: 1; }
+
+.piggy { display: flex; align-items: center; gap: 24rpx; }
+.piggy-icon { font-size: 64rpx; }
+
+.rec { padding: 18rpx 0; border-bottom: 1rpx solid var(--line); }
+.rec:last-child { border-bottom: none; }
+.rec-icon { font-size: 44rpx; margin-right: 20rpx; }
+.empty { text-align: center; padding: 40rpx 0; }
+.strict { background: #fff1f0; }
+.strict-title { display: flex; align-items: center; gap: 10rpx; font-weight: 600; color: var(--danger); font-size: 28rpx; }

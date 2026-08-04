@@ -1,0 +1,110 @@
+<view class="page">
+  <view wx:if="{{goals.length===0}}" class="card center empty-card">
+    <text style="font-size:80rpx">🎯</text>
+    <view class="bold" style="margin:20rpx 0 8rpx">还没有存钱目标</view>
+    <view class="muted" style="margin-bottom:30rpx">用 52 周 / 365 天法，攒下第一桶金</view>
+    <button class="btn btn-primary" style="width:300rpx" bindtap="openAdd">新建目标</button>
+  </view>
+
+  <view wx:for="{{goals}}" wx:key="id" class="card">
+    <view class="row between">
+      <view class="bold" style="font-size:32rpx">{{item.name}}</view>
+      <text class="muted" bindtap="del" data-id="{{item.id}}">删除</text>
+    </view>
+    <view class="row between" style="margin:16rpx 0">
+      <text class="money" style="font-size:44rpx">{{item.savedText}}</text>
+      <text class="muted">目标 {{item.targetText}}</text>
+    </view>
+    <view class="bar"><view style="width:{{item.percent}}%"></view></view>
+    <view class="row between muted" style="margin-top:10rpx;font-size:24rpx">
+      <text>已完成 {{item.percent}}%</text>
+      <text>期限 {{item.deadline}}</text>
+    </view>
+
+    <!-- 计划法：勾选清单 -->
+    <view wx:if="{{item.planView.length>0}}" class="plan">
+      <view class="muted" style="font-size:24rpx;margin:16rpx 0 10rpx">已存 {{item.doneCount}}/{{item.planCount}} 期</view>
+      <view class="plan-grid">
+        <view wx:for="{{item.planView}}" wx:for-item="p" wx:key="idx"
+              class="plan-cell {{p.done?'done':''}}"
+              data-id="{{item.id}}" data-idx="{{p.idx}}" data-done="{{p.done}}" bindtap="togglePlan">
+          {{p.amount}}
+        </view>
+      </view>
+    </view>
+
+    <button class="btn btn-ghost btn-block" style="margin-top:24rpx" data-id="{{item.id}}" bindtap="contribute">存一笔进去</button>
+  </view>
+
+  <!-- 愿望清单 -->
+  <view class="card">
+    <view class="row between">
+      <view class="bold">🎁 愿望清单</view>
+      <text class="muted" bindtap="openWish">+ 加愿望</text>
+    </view>
+    <view wx:if="{{wishes.length===0}}" class="empty muted" style="padding:30rpx 0">添加想买的东西，存够自动解锁 🔓</view>
+    <view wx:for="{{wishes}}" wx:key="id" class="wish {{item.unlocked ? '' : 'locked'}}">
+      <text class="wish-icon">{{item.icon}}</text>
+      <view style="flex:1">
+        <view class="bold">{{item.name}}</view>
+        <view class="muted" style="font-size:22rpx">{{item.unlocked ? '已达成，奖励解锁！' : '还差 ' + item.need}}</view>
+        <view class="bar" style="margin-top:8rpx"><view style="width:{{item.percent}}%"></view></view>
+      </view>
+      <text class="muted" bindtap="delWish" data-id="{{item.id}}">✕</text>
+    </view>
+  </view>
+
+  <button wx:if="{{goals.length>0}}" class="btn btn-primary btn-block" bindtap="openAdd">+ 新建目标</button>
+</view>
+
+<!-- 新建目标弹窗 -->
+<view wx:if="{{showAdd}}" class="mask" bindtap="closeAdd">
+  <view class="dialog" catchtap="">
+    <view class="bold" style="font-size:34rpx;text-align:center;margin-bottom:24rpx">新建存钱目标</view>
+    <input class="fld" placeholder="目标名称（如：买电脑）" value="{{form.name}}" bindinput="onName" />
+
+    <view class="muted" style="margin:20rpx 0 12rpx">选择方式</view>
+    <view class="methods">
+      <view wx:for="{{methods}}" wx:key="key"
+            class="method {{form.method===item.key?'on':''}}"
+            data-m="{{item.key}}" bindtap="pickMethod">
+        <view class="bold" style="font-size:28rpx">{{item.name}}</view>
+        <view class="muted" style="font-size:22rpx">{{item.desc}}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{form.method==='52week'}}" class="fld-row">
+      <text>每周基数</text>
+      <input class="fld-sm" type="digit" value="{{form.unit}}" bindinput="onUnit" />
+    </view>
+    <view wx:if="{{form.method==='custom'}}" class="fld-row">
+      <text>目标金额</text>
+      <input class="fld-sm" type="digit" value="{{form.target}}" bindinput="onTarget" />
+    </view>
+    <picker mode="date" value="{{form.deadline}}" bindchange="onDate">
+      <view class="fld-row">
+        <text>截止日期</text>
+        <text class="muted">{{form.deadline || '选填'}}</text>
+      </view>
+    </picker>
+
+    <button class="btn btn-primary btn-block" style="margin-top:28rpx" bindtap="submitAdd">创建</button>
+  </view>
+</view>
+
+<!-- 添加愿望弹窗 -->
+<view wx:if="{{showWish}}" class="mask" bindtap="closeWish">
+  <view class="dialog" catchtap="">
+    <view class="bold" style="font-size:34rpx;text-align:center;margin-bottom:24rpx">🎁 添加愿望</view>
+    <input class="fld" placeholder="想要什么？（如：Switch）" value="{{wform.name}}" bindinput="onWName" />
+    <view class="fld-row">
+      <text>预计花费</text>
+      <input class="fld-sm" type="digit" placeholder="0" value="{{wform.cost}}" bindinput="onWCost" />
+    </view>
+    <view class="fld-row">
+      <text>图标</text>
+      <input class="fld-sm" style="text-align:center;font-size:36rpx" value="{{wform.icon}}" bindinput="onWIcon" />
+    </view>
+    <button class="btn btn-primary btn-block" style="margin-top:28rpx" bindtap="submitWish">添加</button>
+  </view>
+</view>

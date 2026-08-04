@@ -1,0 +1,67 @@
+<svg viewBox="0 0 960 680" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .box{fill:#ffffff;stroke-width:2;rx:14;}
+      .t{fill:#0f172a;font-size:19px;font-weight:700;}
+      .s{fill:#475569;font-size:13px;}
+      .cap{fill:#64748b;font-size:12px;}
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="960" height="680" fill="#f8fafc"/>
+
+  <!-- title -->
+  <text x="480" y="40" text-anchor="middle" fill="#0f172a" font-size="24" font-weight="800">攒钱罐 · 架构与隐私数据流</text>
+  <text x="480" y="62" text-anchor="middle" fill="#64748b" font-size="13">双端同构 · 微信云开发(可选) · 隐私最小化防火墙</text>
+
+  <!-- CLIENT: mini program -->
+  <rect x="60" y="90" width="360" height="96" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="240" y="126" text-anchor="middle" class="t" fill="#0369a1">微信小程序端</text>
+  <text x="240" y="150" text-anchor="middle" class="s">WXML / WXSS / JS · tabBar 五页</text>
+  <text x="240" y="170" text-anchor="middle" class="cap">额度 · 记账 · 目标 · 统计 · 我的</text>
+
+  <!-- CLIENT: web -->
+  <rect x="540" y="90" width="360" height="96" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="720" y="126" text-anchor="middle" class="t" fill="#0369a1">网页版（可在线试用）</text>
+  <text x="720" y="150" text-anchor="middle" class="s">HTML / CSS / JS · 单页应用</text>
+  <text x="720" y="170" text-anchor="middle" class="cap">逻辑层与小程序 100% 复用</text>
+
+  <!-- STORE layer -->
+  <rect x="300" y="240" width="360" height="84" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="480" y="274" text-anchor="middle" class="t" fill="#15803d">共享业务逻辑层 · store.js</text>
+  <text x="480" y="298" text-anchor="middle" class="s">额度 / 罚金 / 重点类目管控 / 省钱鼓励 / 愿望 / 目标</text>
+
+  <!-- FIREWALL layer -->
+  <rect x="300" y="356" width="360" height="84" rx="14" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="480" y="388" text-anchor="middle" class="t" fill="#a16207">隐私防火墙 · security.js</text>
+  <text x="480" y="412" text-anchor="middle" class="s">字段白名单 · 数值钳制 · 文本清洗 · openid 脱敏</text>
+
+  <!-- LOCAL storage (always) -->
+  <rect x="70" y="500" width="350" height="96" rx="14" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="245" y="534" text-anchor="middle" class="t" fill="#334155">本地存储（设备内）</text>
+  <text x="245" y="558" text-anchor="middle" class="s">wx.storage / localStorage</text>
+  <text x="245" y="578" text-anchor="middle" class="cap">全部记账明细只留本机，零上传</text>
+
+  <!-- CLOUD (optional) -->
+  <rect x="540" y="476" width="360" height="150" rx="14" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="720" y="506" text-anchor="middle" class="t" fill="#6d28d9">微信云开发（可选 · 显式授权）</text>
+  <text x="720" y="528" text-anchor="middle" class="s" font-size="12">setReminder · syncSnapshot · subscribeReminder · clearCloud</text>
+  <rect x="566" y="540" width="308" height="44" rx="8" fill="#faf5ff" stroke="#a78bfa" stroke-width="1"/>
+  <text x="720" y="567" text-anchor="middle" class="s" fill="#7c3aed">云数据库仅存聚合数字：remaining / strictRemaining</text>
+  <text x="720" y="612" text-anchor="middle" class="cap">不含任何单笔消费、商户、姓名、手机</text>
+
+  <!-- PRIVACY boundary -->
+  <rect x="46" y="478" width="838" height="142" rx="16" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="60" y="498" fill="#ef4444" font-size="12" font-weight="700">隐私边界：本 App 不接入微信支付、不读取交易流水、不收集银行卡/证件/生物信息</text>
+
+  <!-- arrows -->
+  <line x1="240" y1="186" x2="430" y2="240" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="186" x2="530" y2="240" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="480" y1="324" x2="480" y2="356" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="420" y1="398" x2="320" y2="500" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="540" y1="398" x2="640" y2="476" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
