@@ -90,6 +90,13 @@ python3 -m http.server 8080
 # 浏览器打开 http://localhost:8080
 ```
 
+## 部署到线上（可选 · 永久可访问）
+
+本目录是纯静态站点，可一键部署到免费静态托管，获得长期有效的在线 Demo 链接：
+
+- **Vercel / Netlify**：仓库根目录已包含 `vercel.json` / `netlify.toml`，发布目录指向 `攒钱罐-web`。导入仓库后无需构建即可上线，得到 `*.vercel.app` / `*.netlify.app` 永久链接。
+- 也可直接用 **GitHub Pages**（将本目录内容放到仓库根或 `/docs` 后开启 Pages）。
+
 ## 微信小程序版
 
 同构的小程序代码在 [`../攒钱罐`](../攒钱罐) 目录，已实现：
