@@ -4,6 +4,7 @@
 
 [![中文](https://img.shields.io/badge/README-中文-red)](./README.md)
 [![Security](https://img.shields.io/badge/Privacy-field--whitelist%20%7C%20log--masking-orange)](./攒钱罐/SECURITY.md)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000?logo=vercel&logoColor=white)](https://putao-joq8-pe7acbjf3-putao1.vercel.app)
 
 ---
 
